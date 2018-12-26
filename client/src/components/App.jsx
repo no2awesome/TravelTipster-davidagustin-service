@@ -26,7 +26,6 @@ export default class App extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('handleSubmit fires');
 
     let data = {
       text: this.state.text

@@ -141,9 +141,6 @@ for (let i = 0; i < 2000; i++) {
   let randomUserID = Math.floor(Math.random() * 101);
   for (let j = 0; j < amountOfUserMessages; j++) {
     let hotelOfReviewID = Math.floor(Math.random() * 100);
-    // console.log( hotelsTable[hotelOfReviewID].hotelID);
-    // console.log('randomUserID: ', randomUserID);
-    // console.log(userTable[randomUserID].userID);
     userWhoReviewMessageObject = {
       reviewID: reviewID,
       locationIDFK: hotelsTable[hotelOfReviewID].hotelID,
@@ -191,14 +188,6 @@ for (let i = 0; i < userReviewMessage.length; i++) {
     }
   }
 }
-
-// console.log(userTable);
-// console.log(imagesTable);
-// console.log(hotelsTable);
-// console.log(userReviewMessage);
-// console.log(replyTable);
-
-
 
 module.exports = {
   userTable,

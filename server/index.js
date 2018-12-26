@@ -18,15 +18,7 @@ app.get('/text', (req, res) => {
   console.log('app.get fires');
 });
 
-
 const { userTable, imagesTable, hotelsTable, userReviewMessage, replyTable } = require('../db/faker.js');
-
-// console.log(userTable);
-// console.log(imagesTable);
-// console.log(hotelsTable);
-// console.log(userReviewMessage);
-// console.log(replyTable);
-
 
 for (let i = 0; i < userTable.length; i++) {
   let user = `INSERT INTO user (userName, userImage) VALUES ("${userTable[i].userName}", '${userTable[i].userImage}')`;
