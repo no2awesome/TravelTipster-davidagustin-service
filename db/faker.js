@@ -2,8 +2,9 @@ let faker = require('faker');
 let loremIpsum = require('lorem-ipsum');
 
 let userTable = [];
-for (let i = 0; i < 99; i++) {
+for (let i = 0; i < 101; i++) {
   let userTableObject = {
+    userID: i + 1,
     userName: faker.name.findName(),
     userImage: faker.image.avatar(),
   };
@@ -11,7 +12,7 @@ for (let i = 0; i < 99; i++) {
 }
 
 let imagesTable = [];
-for (let i = 0; i < 99; i++) {
+for (let i = 1; i < 101; i++) {
   let imagesPosted = Math.floor(Math.random() * 4);
   for (let j = 0; j <= imagesPosted; j++) {
     let imagesTableObject = {
@@ -23,10 +24,14 @@ for (let i = 0; i < 99; i++) {
 }
 
 let hotelsTable = [];
-for (let i = 0; i < 99; i++) {
+for (let i = 0; i < 101; i++) {
   let hotelsTableObject = {
-    hotelID: i,
+    hotelID: i + 1,
     hotelName: faker.name.lastName() + ' hotel',
+    hotelAddress: faker.address.streetAddress(),
+    hotelCity: faker.address.city(),
+    hotelState: faker.address.state(),
+    hotelZipCode: faker.address.zipCode(),
     amountOfReviews: 0,
     averageOverallHotelRating: 0
   };
@@ -127,30 +132,35 @@ function createBool() {
 }
 
 let userReviewMessage = [];
-let reviewID = 0;
+let reviewID = 1;
 
 for (let i = 0; i < 2000; i++) {
+
   let userWhoReviewMessageObject = {};
   let amountOfUserMessages = Math.floor(Math.random() * 4) + 1;
-
+  let randomUserID = Math.floor(Math.random() * 101);
   for (let j = 0; j < amountOfUserMessages; j++) {
-    let hotelOfReviewID = Math.floor(Math.random() * 99);
+    let hotelOfReviewID = Math.floor(Math.random() * 100);
+    // console.log( hotelsTable[hotelOfReviewID].hotelID);
+    // console.log('randomUserID: ', randomUserID);
+    // console.log(userTable[randomUserID].userID);
     userWhoReviewMessageObject = {
       reviewID: reviewID,
-      locationFK: hotelsTable[hotelOfReviewID].hotelName,
-      userWhoPostedMessageIDFK: i,
+      locationIDFK: hotelsTable[hotelOfReviewID].hotelID,
+      userWhoPostedMessageIDFK: userTable[randomUserID].userID,
       overAllRating: createRating(),
       amountOfReviewsFK: hotelsTable[hotelOfReviewID].amountOfReviews += 1,
       title: createTitle(),
       message: createMessage(),
       dateOfStay: dateGenerator(),
       travelerType: createTravelerType(),
+      hotelOfUserReviewMessage: userTable[randomUserID].userID,
       valueRating: createRating(),
       locationRating: createRating(),
       serviceRating: createRating(),
       roomRating: createRating(),
       cleanlinessRating: createRating(),
-      travelerOrLLC: createBool(),
+      memberOrLLC: createBool(),
       helpfulClicked: createBool(),
       totalHelpfulClicks: Math.floor(Math.random() * 4)
     };
@@ -168,9 +178,9 @@ let replyTable = [];
 for (let i = 0; i < userReviewMessage.length; i++) {
   let repliedToMessage = createBool();
   if (repliedToMessage) {
-    for (let i = 0; i < 1; i++) {
+    for (let j = 0; j < 1; j++) {
       let replyTableObject = {
-        reviewIDFK: i,
+        reviewIDFK: i + 1,
         name: faker.name.findName(),
         position: faker.name.jobTitle(),
         replyMessage: createMessage(),
@@ -181,6 +191,14 @@ for (let i = 0; i < userReviewMessage.length; i++) {
     }
   }
 }
+
+// console.log(userTable);
+// console.log(imagesTable);
+// console.log(hotelsTable);
+// console.log(userReviewMessage);
+// console.log(replyTable);
+
+
 
 module.exports = {
   userTable,

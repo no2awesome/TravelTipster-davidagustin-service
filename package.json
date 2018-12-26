@@ -6,7 +6,11 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "react-dev": "webpack -d --watch",
+    "start": "nodemon server/index.js",
+    "db": "mysql -u root -p < schema.sql && node ./server/index.js"
+  },
   "dependencies": {
     "faker": "^4.1.0",
     "lorem-ipsum": "^1.0.6"
@@ -17,6 +21,7 @@
     "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/preset-react": "^7.0.0",
     "babel-cli": "^6.26.0",
+    "body-parser": "^1.18.3",
     "eslint": "^5.10.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -25,6 +30,8 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.1.2"
   },
