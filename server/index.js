@@ -6,7 +6,18 @@ const bodyParser = require('body-parser');
 // let Promise = require('promise');
 
 app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, './../client/dist')));
+
+app.post('/text', (req, res) => {
+  console.log('text fires!');
+  console.log('req.body', req.body);
+});
+
+app.get('/text', (req, res) => {
+  console.log('app.get fires');
+});
+
 
 const { userTable, imagesTable, hotelsTable, userReviewMessage, replyTable } = require('../db/faker.js');
 
@@ -66,6 +77,6 @@ for (let i = 0; i < replyTable.length; i++) {
   });
 }
 
-
 const PORT = 3000;
-app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
+app.listen(PORT, () => console.log(`TravelTipster Server is listening on PORT ${PORT}`));
+
