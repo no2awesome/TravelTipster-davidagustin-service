@@ -25,14 +25,6 @@ const getData = () => {
       resolve(response);
     });
   });
-  // let sqlCommand = `SELECT * FROM test_table`;
-  // db.query(sqlCommand, (err, data) => {
-  //   if(err) {
-  //     console.log('Error in get request')
-  //   } else {
-  //     res(data)
-  //   }
-  // })
 };
 
 module.exports = {
