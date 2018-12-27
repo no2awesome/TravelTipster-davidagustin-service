@@ -15,7 +15,22 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    $.get('/text');
+    $.get({
+      url: `http://localhost:3000/hotels/${this.props.hotelItem}/reviews`
+    });
+    // fetch('/text')
+    //   .then((data) => {
+    //     return data.json();
+    //   })
+    //   .then((updated) => {
+    //     return JSON.stringify(updated);
+    //   })
+    //   .then((string) => {
+    //     console.log(string);
+    //     this.setState({
+    //       updated: string
+    //     });
+    //   });
   }
 
   handleChange(e) {
@@ -41,6 +56,7 @@ export default class App extends React.Component {
 
 
   render() {
+    console.log('this.props', this.props);
     return (
       <div>
         <h1>Reviews</h1>

@@ -6,16 +6,16 @@ const bodyParser = require('body-parser');
 // let Promise = require('promise');
 
 app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, './../client/dist')));
 
-app.post('/text', (req, res) => {
-  console.log('text fires!');
-  console.log('req.body', req.body);
+app.get('/hotels/:hotelItem/reviews', (req, res) => {
+  console.log('/hotels/:hotelItem/reviews');
+  console.log('req.params', req.params);
 });
 
-app.get('/text', (req, res) => {
-  console.log('app.get fires');
+app.post('/text', (req, res) => {
+  console.log('app.post fires');
 });
 
 const { userTable, imagesTable, hotelsTable, userReviewMessage, replyTable } = require('../db/faker.js');
