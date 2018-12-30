@@ -12,15 +12,18 @@ for (let i = 0; i < 101; i++) {
 }
 
 let imagesTable = [];
+let imagesURIArray = [];
 for (let i = 1; i < 101; i++) {
   let imagesPosted = Math.floor(Math.random() * 4);
   for (let j = 0; j <= imagesPosted; j++) {
-    let imagesTableObject = {
-      userWhoPostedImageIDFK: i,
-      imageURI: faker.image.city()
-    };
-    imagesTable.push(imagesTableObject);
+    imagesURIArray.push({imageURI: faker.image.city()});
   }
+  let imagesTableObject = {
+    userWhoPostedImageIDFK: i,
+    imageURI: JSON.stringify(imagesURIArray)
+  };
+  imagesTable.push(imagesTableObject);
+  imagesURIArray = [];
 }
 
 let hotelsTable = [];
@@ -38,11 +41,9 @@ for (let i = 0; i < 101; i++) {
   hotelsTable.push(hotelsTableObject);
 }
 
-function createRating() {
-  return Math.floor(Math.random() * 4) + 1;
-}
+const createRating = () => Math.floor(Math.random() * 5) + 1;
 
-function dateGenerator(string) {
+const dateGenerator = string => {
   let yearOfStay;
 
   const MONTHS = [
@@ -83,7 +84,7 @@ function dateGenerator(string) {
       .slice(1, 5);
     return `${chooseRandomMonth} ${yearOfStay}`;
   }
-}
+};
 
 // Create title
 function createTitle() {
@@ -97,19 +98,17 @@ function createTitle() {
 }
 
 // Create message
-function createMessage() {
-  return loremIpsum({
-    count: 3,
-    units: 'paragraphs',
-    sentenceLowerBound: 5,
-    sentenceUpperBound: 15,
-    paragraphLowerBound: 3,
-    paragraphUpperBound: 7,
-    format: 'plain'
-  });
-}
+const createMessage = () => loremIpsum({
+  count: 3,
+  units: 'paragraphs',
+  sentenceLowerBound: 5,
+  sentenceUpperBound: 15,
+  paragraphLowerBound: 3,
+  paragraphUpperBound: 7,
+  format: 'plain'
+});
 
-function createTravelerType() {
+const createTravelerType = () => {
   const ENUM =
     [
       'Business',
@@ -120,16 +119,12 @@ function createTravelerType() {
     ];
   let chooseRandomTravelType = Math.floor(Math.random() * 5);
   return ENUM[chooseRandomTravelType];
-}
+};
 
-function createBool() {
+const createBool = () => {
   let randomBool = Math.floor(Math.random() * 2);
-  if (randomBool === 0) {
-    return false;
-  } else {
-    return true;
-  }
-}
+  return randomBool !== 0;
+};
 
 let userReviewMessage = [];
 let reviewID = 1;

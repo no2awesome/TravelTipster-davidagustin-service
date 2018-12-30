@@ -1,5 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
+import TotalReviews from '../TotalReviews/TotalReviews.jsx';
+import TravelRating from '../TravelRating/TravelRating.jsx';
+import TravlerType from '../TravelerType/TravelerType.jsx';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -8,6 +11,7 @@ export default class App extends React.Component {
     this.state = {
       text: '',
       update: 'text will change if button works',
+      hotelData: ['empty']
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -17,20 +21,13 @@ export default class App extends React.Component {
   componentDidMount() {
     $.get({
       url: `http://localhost:3000/hotels/${this.props.hotelItem}/reviews`
-    });
-    // fetch('/text')
-    //   .then((data) => {
-    //     return data.json();
-    //   })
-    //   .then((updated) => {
-    //     return JSON.stringify(updated);
-    //   })
-    //   .then((string) => {
-    //     console.log(string);
-    //     this.setState({
-    //       updated: string
-    //     });
-    //   });
+    }).then((hotelData => {
+      console.log(hotelData);
+      this.setState({
+        hotelData: hotelData
+      });
+    }));
+
   }
 
   handleChange(e) {
@@ -56,16 +53,19 @@ export default class App extends React.Component {
 
 
   render() {
-    console.log('this.props', this.props);
+
+    //Pass down all of user ratings to TravelRating component
+    let ratingsArray = [];
+    for (let i = 0; i < this.state.hotelData.length; i++) {
+      ratingsArray.push(this.state.hotelData[i]['overallRating']);
+    }
+
     return (
       <div>
-        <h1>Reviews</h1>
-        <form onSubmit={this.handleSubmit}>
-          <label> Text
-            <input name="text" value={this.state.text} onChange={this.handleChange}/>
-          </label>
-          <button>Submit</button>
-        </form>
+        <TotalReviews total={this.state.hotelData.length}/>
+        <h1>Reviews </h1>
+        <TravelRating ratings={ratingsArray}/>
+        <TravlerType />
       </div>
     );
   }

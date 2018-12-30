@@ -10,6 +10,7 @@ CREATE TABLE user
   userName  TEXT NOT NULL,
   userImage TEXT
 );
+
 CREATE TABLE images
 (
   imageID                INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -19,7 +20,6 @@ CREATE TABLE images
 
 ALTER TABLE images
   ADD FOREIGN KEY (userWhoPostedImageIDFK) REFERENCES user (userID);
-
 
 CREATE TABLE hotels
 (

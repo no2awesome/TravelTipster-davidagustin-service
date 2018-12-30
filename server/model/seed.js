@@ -1,29 +1,9 @@
-const db = require('./../db/index.js');
-const path = require('path');
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-// let Promise = require('promise');
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, './../client/dist')));
-
-app.get('/hotels/:hotelItem/reviews', (req, res) => {
-  console.log('/hotels/:hotelItem/reviews');
-  console.log('req.params', req.params);
-});
-
-app.post('/text', (req, res) => {
-  console.log('app.post fires');
-});
-
-const { userTable, imagesTable, hotelsTable, userReviewMessage, replyTable } = require('../db/faker.js');
+const {userTable, imagesTable, hotelsTable, userReviewMessage, replyTable} = require('../../db/faker.js');
+const db = require('../../db/index.js');
 
 for (let i = 0; i < userTable.length; i++) {
   let user = `INSERT INTO user (userName, userImage) VALUES ("${userTable[i].userName}", '${userTable[i].userImage}')`;
   db.query(user, (err) => {
-
     if (err) {
       console.log('ERROR INSERT userName', `"${userTable[i].userName}", "${userTable[i].userImage}"`);
     }
@@ -50,7 +30,7 @@ for (let i = 0; i < hotelsTable.length; i++) {
 }
 
 for (let i = 0; i < userReviewMessage.length; i++) {
-  let userReview = `INSERT INTO userReviewMessage (locationIDFK, userWhoPostedMessageIDFK, overallRating, amountOfReviewsFK, title, message, dateOfStay, travelerType, hotelOfUserReviewMessage, valueRating, locationRating, serviceRating, roomRating, cleanlinessRating, memberOrLLC, totalHelpfulClicked, datePosted) VALUES (${userReviewMessage[i].locationIDFK}, ${userReviewMessage[i].userWhoPostedMessageIDFK}, ${userReviewMessage[i].overAllRating}, ${userReviewMessage[i].amountOfReviewsFK}, "${userReviewMessage[i].title}", "${userReviewMessage[i].message}", "${userReviewMessage[i].dateOfStay}","${userReviewMessage[i].travelerType}", ${userReviewMessage[i].hotelOfUserReviewMessage}, ${userReviewMessage[i].valueRating}, ${userReviewMessage[i].locationRating}, ${userReviewMessage[i].serviceRating}, ${userReviewMessage[i].roomRating}, ${userReviewMessage[i].cleanlinessRating}, ${userReviewMessage[i].memberOrLLC}, ${userReviewMessage[i].helpfulClicked}, "${userReviewMessage[i].datePosted}")`;
+  let userReview = `INSERT INTO userReviewMessage (locationIDFK, userWhoPostedMessageIDFK, overallRating, amountOfReviewsFK, title, message, dateOfStay, travelerType, hotelOfUserReviewMessage, valueRating, locationRating, serviceRating, roomRating, cleanlinessRating, memberOrLLC, helpfulClicked, totalHelpfulClicked, datePosted) VALUES (${userReviewMessage[i].locationIDFK}, ${userReviewMessage[i].userWhoPostedMessageIDFK}, ${userReviewMessage[i].overAllRating}, ${userReviewMessage[i].amountOfReviewsFK}, "${userReviewMessage[i].title}", "${userReviewMessage[i].message}", "${userReviewMessage[i].dateOfStay}","${userReviewMessage[i].travelerType}", ${userReviewMessage[i].hotelOfUserReviewMessage}, ${userReviewMessage[i].valueRating}, ${userReviewMessage[i].locationRating}, ${userReviewMessage[i].serviceRating}, ${userReviewMessage[i].roomRating}, ${userReviewMessage[i].cleanlinessRating}, ${userReviewMessage[i].memberOrLLC}, ${userReviewMessage[i].helpfulClicked}, ${userReviewMessage[i].totalHelpfulClicks}, "${userReviewMessage[i].datePosted}")`;
 
   db.query(userReview, (err) => {
     if (err) {
@@ -68,7 +48,3 @@ for (let i = 0; i < replyTable.length; i++) {
     }
   });
 }
-
-const PORT = 3000;
-app.listen(PORT, () => console.log(`TravelTipster Server is listening on PORT ${PORT}`));
-
