@@ -2,7 +2,8 @@ import React from 'react';
 import $ from 'jquery';
 import TotalReviews from '../TotalReviews/TotalReviews.jsx';
 import TravelRating from '../TravelRating/TravelRating.jsx';
-import TravlerType from '../TravelerType/TravelerType.jsx';
+import TimeOfYear from '../TimeOfYear/TimeOfYear.jsx';
+import TravelerType from '../TravelerType/TravelerType.jsx';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -64,8 +65,11 @@ export default class App extends React.Component {
       <div>
         <TotalReviews total={this.state.hotelData.length}/>
         <h1>Reviews </h1>
-        <TravelRating ratings={ratingsArray}/>
-        <TravlerType />
+        <div>
+          <TravelRating ratings={ratingsArray}/>
+          <TimeOfYear />
+          <TravelerType />
+        </div>
       </div>
     );
   }
