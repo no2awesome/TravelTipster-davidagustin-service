@@ -4,6 +4,7 @@ import TotalReviews from '../TotalReviews/TotalReviews.jsx';
 import TravelRating from '../TravelRating/TravelRating.jsx';
 import TimeOfYear from '../TimeOfYear/TimeOfYear.jsx';
 import TravelerType from '../TravelerType/TravelerType.jsx';
+import SearchReviews from '../SearchReviews/SearchReviews.jsx';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -69,6 +70,9 @@ export default class App extends React.Component {
           <TravelRating ratings={ratingsArray}/>
           <TimeOfYear />
           <TravelerType />
+        </div>
+        <div>
+          <SearchReviews />
         </div>
       </div>
     );
