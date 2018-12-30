@@ -5,6 +5,11 @@ import TravelRating from '../TravelRating/TravelRating.jsx';
 import TimeOfYear from '../TimeOfYear/TimeOfYear.jsx';
 import TravelerType from '../TravelerType/TravelerType.jsx';
 import SearchReviews from '../SearchReviews/SearchReviews.jsx';
+import User from '../User/User.jsx';
+import UserMessage from '../UserMessage/UserMessage.jsx';
+import UserReviewPagination from '../UserReviewPagination/UserReviewPagination.jsx';
+import ReplyUser from '../ReplyUser/ReplyUser.jsx';
+import ReplyUserMessage from '../ReplyUserMessage/ReplyUserMessage.jsx';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -65,7 +70,7 @@ export default class App extends React.Component {
     return (
       <div>
         <TotalReviews total={this.state.hotelData.length}/>
-        <h1>Reviews </h1>
+        <h1>Reviews</h1>
         <div>
           <TravelRating ratings={ratingsArray}/>
           <TimeOfYear />
@@ -74,6 +79,15 @@ export default class App extends React.Component {
         <div>
           <SearchReviews />
         </div>
+        <div>
+          <User />
+          <UserMessage />
+        </div>
+        <div>
+          <ReplyUser />
+          <ReplyUserMessage />
+        </div>
+        <UserReviewPagination />
       </div>
     );
   }
