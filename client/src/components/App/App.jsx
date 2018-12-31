@@ -11,7 +11,7 @@ import UserReviewPagination from '../UserReviewPagination/UserReviewPagination.j
 import ReplyUser from '../ReplyUser/ReplyUser.jsx';
 import ReplyUserMessage from '../ReplyUserMessage/ReplyUserMessage.jsx';
 
-export default class App extends React.Component {
+export class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -87,10 +87,9 @@ export default class App extends React.Component {
           <ReplyUser />
           <ReplyUserMessage />
         </div>
-        <UserReviewPagination />
+        <UserReviewPagination total={this.state.hotelData.length}/>
       </div>
     );
   }
 
 }
-
