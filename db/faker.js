@@ -31,10 +31,6 @@ for (let i = 0; i < 101; i++) {
   let hotelsTableObject = {
     hotelID: i + 1,
     hotelName: faker.name.lastName() + ' hotel',
-    // hotelAddress: faker.address.streetAddress(),
-    // hotelCity: faker.address.city(),
-    // hotelState: faker.address.state(),
-    // hotelZipCode: faker.address.zipCode(),
     amountOfReviews: 0,
     averageOverallHotelRating: 0
   };
