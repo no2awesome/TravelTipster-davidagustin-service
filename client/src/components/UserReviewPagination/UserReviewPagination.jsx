@@ -45,7 +45,7 @@ class UserReviewPagination extends React.Component{
           nextPageText='Next'
           activePage={this.state.activePage}
           itemsCountPerPage={5}
-          totalItemsCount={this.props.total}
+          totalItemsCount={this.state.hotelData.length}
           pageRangeDisplayed={7}
           onChange={this.handlePageChange}
         />

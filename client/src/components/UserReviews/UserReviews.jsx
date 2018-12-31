@@ -4,7 +4,6 @@ import ReplyUserMessage from '../ReplyUserMessage/ReplyUserMessage.jsx';
 import User from '../User/User.jsx';
 import UserMessage from '../UserMessage/UserMessage.jsx';
 
-
 export class UserReviews extends React.Component {
   constructor(props) {
     super(props);

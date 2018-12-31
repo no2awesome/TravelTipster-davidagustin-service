@@ -23,7 +23,6 @@ export class App extends React.Component {
     $.get({
       url: `http://localhost:3000/hotels/${this.props.hotelItem}/reviews`
     }).then((hotelData => {
-      console.log(hotelData);
       this.setState({
         hotelData: hotelData
       });
@@ -40,9 +39,9 @@ export class App extends React.Component {
   render() {
 
     //Pass down all of user ratings to TravelRating component
-    let ratingsArray = [];
+    let ratings = [];
     for (let i = 0; i < this.state.hotelData.length; i++) {
-      ratingsArray.push(this.state.hotelData[i]['overallRating']);
+      ratings.push(this.state.hotelData[i]['overallRating']);
     }
 
     return (
@@ -50,7 +49,7 @@ export class App extends React.Component {
         <TotalReviews total={this.state.hotelData.length}/>
         <h1>Reviews</h1>
         <div>
-          <TravelRating ratings={ratingsArray}/>
+          <TravelRating ratings={ratings}/>
           <TimeOfYear />
           <TravelerType />
         </div>
