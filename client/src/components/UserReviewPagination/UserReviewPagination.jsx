@@ -1,40 +1,44 @@
 import React from 'react';
 import $ from 'jquery';
 import Pagination from 'react-js-pagination';
+import {UserReviews} from '../UserReviews/UserReviews.jsx';
 
 class UserReviewPagination extends React.Component{
   constructor(props) {
     super(props);
 
     this.state = {
-      hotelData: ['empty']
+      hotelData: ['empty'],
+      activePage: 1
     };
 
     this.handlePageChange = this.handlePageChange.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     $.get({
       url: `http://localhost:3000/hotels/${this.props.hotelItem}/reviews`
     }).then((hotelData => {
       this.setState({
         hotelData: hotelData,
-        activePage: 15
+        activePage: 1
       });
     }));
 
   }
 
   handlePageChange(pageNumber) {
-    console.log(`active page is ${pageNumber}`);
+    console.log('Page number: ', pageNumber);
     this.setState({activePage: pageNumber});
   }
 
-
   render(){
+
     return(
       <div>
-        <p>This is the Pagination Component</p>
+        <div>
+          <UserReviews hotelData={this.state.hotelData} />
+        </div>
         <Pagination
           hideFirstLastPages={true}
           prevPageText='Previous'
@@ -47,8 +51,7 @@ class UserReviewPagination extends React.Component{
         />
       </div>
     );
-  };
-
+  }
 }
 
 export default UserReviewPagination;

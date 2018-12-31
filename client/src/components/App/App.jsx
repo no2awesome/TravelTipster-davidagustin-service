@@ -5,24 +5,18 @@ import TravelRating from '../TravelRating/TravelRating.jsx';
 import TimeOfYear from '../TimeOfYear/TimeOfYear.jsx';
 import TravelerType from '../TravelerType/TravelerType.jsx';
 import SearchReviews from '../SearchReviews/SearchReviews.jsx';
-import User from '../User/User.jsx';
-import UserMessage from '../UserMessage/UserMessage.jsx';
 import UserReviewPagination from '../UserReviewPagination/UserReviewPagination.jsx';
-import ReplyUser from '../ReplyUser/ReplyUser.jsx';
-import ReplyUserMessage from '../ReplyUserMessage/ReplyUserMessage.jsx';
+
 
 export class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      text: '',
-      update: 'text will change if button works',
       hotelData: ['empty']
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -42,22 +36,6 @@ export class App extends React.Component {
     newState[e.target.name] = e.target.value;
     this.setState(newState);
   }
-
-  handleSubmit(e) {
-    e.preventDefault();
-
-    let data = {
-      text: this.state.text
-    };
-    fetch('/text', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      body: JSON.stringify(data)
-    });
-  }
-
 
   render() {
 
@@ -79,15 +57,7 @@ export class App extends React.Component {
         <div>
           <SearchReviews />
         </div>
-        <div>
-          <User />
-          <UserMessage />
-        </div>
-        <div>
-          <ReplyUser />
-          <ReplyUserMessage />
-        </div>
-        <UserReviewPagination total={this.state.hotelData.length}/>
+        <UserReviewPagination hotelItem={this.props.hotelItem}/>
       </div>
     );
   }

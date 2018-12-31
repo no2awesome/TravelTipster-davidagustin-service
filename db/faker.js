@@ -31,10 +31,10 @@ for (let i = 0; i < 101; i++) {
   let hotelsTableObject = {
     hotelID: i + 1,
     hotelName: faker.name.lastName() + ' hotel',
-    hotelAddress: faker.address.streetAddress(),
-    hotelCity: faker.address.city(),
-    hotelState: faker.address.state(),
-    hotelZipCode: faker.address.zipCode(),
+    // hotelAddress: faker.address.streetAddress(),
+    // hotelCity: faker.address.city(),
+    // hotelState: faker.address.state(),
+    // hotelZipCode: faker.address.zipCode(),
     amountOfReviews: 0,
     averageOverallHotelRating: 0
   };
@@ -146,7 +146,7 @@ for (let i = 0; i < 2000; i++) {
       message: createMessage(),
       dateOfStay: dateGenerator(),
       travelerType: createTravelerType(),
-      hotelOfUserReviewMessage: userTable[randomUserID].userID,
+      hotelOfUserReviewMessage: hotelsTable[hotelOfReviewID].hotelID,
       valueRating: createRating(),
       locationRating: createRating(),
       serviceRating: createRating(),

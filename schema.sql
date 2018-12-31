@@ -25,10 +25,6 @@ CREATE TABLE hotels
 (
   hotelID              INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   hotelName            VARCHAR(120),
-  hotelAddress         TEXT,
-  hotelCity            TEXT,
-  hotelState           TEXT,
-  hotelZipCode         TEXT,
   amountOfReviews      INT,
   averageOverallHotelRating REAL
 );

@@ -21,10 +21,10 @@ for (let i = 0; i < imagesTable.length; i++) {
 }
 
 for (let i = 0; i < hotelsTable.length; i++) {
-  let hotels = `INSERT INTO hotels (hotelName, hotelAddress, hotelCity, hotelState, hotelZipCode, amountOfReviews, averageOverallHotelRating) VALUES ("${hotelsTable[i].hotelName}", "${hotelsTable[i].hotelAddress}", "${hotelsTable[i].hotelCity}", "${hotelsTable[i].hotelState}", "${hotelsTable[i].hotelZipCode}", ${hotelsTable[i].amountOfReviews}, ${hotelsTable[i].averageOverallHotelRating})`;
+  let hotels = `INSERT INTO hotels (hotelName, amountOfReviews, averageOverallHotelRating) VALUES ("${hotelsTable[i].hotelName}", ${hotelsTable[i].amountOfReviews}, ${hotelsTable[i].averageOverallHotelRating})`;
   db.query(hotels, (err) => {
     if (err) {
-      console.log((`ERROR '${hotelsTable[i].hotelName}', '${hotelsTable[i].hotelAddress}','${hotelsTable[i].hotelCity}','${hotelsTable[i].hotelState}','${hotelsTable[i].hotelZipCode}','${hotelsTable[i].averageOverallHotelRating}'`));
+      console.log((`ERROR '${hotelsTable[i].hotelName}','${hotelsTable[i].averageOverallHotelRating}'`));
     }
   });
 }
