@@ -9,7 +9,7 @@ class UserReviewPagination extends React.Component {
 
     this.state = {
       hotelData: ['empty'],
-      activePage: null,
+      activePage: 1,
       filtered: ['empty']
     };
 
@@ -84,7 +84,7 @@ class UserReviewPagination extends React.Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     $.get({
       url: `http://localhost:3000/hotels/${this.props.hotelItem}/reviews`
     }).then((hotelData => {

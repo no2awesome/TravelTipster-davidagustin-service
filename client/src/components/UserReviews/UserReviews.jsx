@@ -9,9 +9,10 @@ export class UserReviews extends React.Component {
     super(props);
 
     this.state = {
-      activePage: 1,
+      activePage: null,
       currentColumnView: [],
     };
+
     this.mapColumn = this.mapColumn.bind(this);
     this.userReviewMessages = null;
   }
@@ -20,14 +21,12 @@ export class UserReviews extends React.Component {
     let currentUserReviewColumn = [];
     // Show 5 messages per page from the number clicked on UserReviewPagination
     for (let i = (nextProps.activePage - 1) * 5; i < (nextProps.activePage) * 5; i++) {
-      if (this.props.hotelData[i] === undefined) {
+      if (nextProps.hotelData[i] === undefined) {
         break;
       } else {
         currentUserReviewColumn.push(nextProps.hotelData[i]);
       }
     }
-
-    this.mapColumn();
 
     this.setState({
       activePage: nextProps.activePage,
@@ -78,7 +77,7 @@ export class UserReviews extends React.Component {
   }
 
   render() {
-    {this.mapColumn();}
+    this.mapColumn();
     return (
       this.userReviewMessages
     );

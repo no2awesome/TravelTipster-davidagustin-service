@@ -37,9 +37,6 @@ export class App extends React.Component {
 
   render() {
 
-    //Pass down all of user ratings to Filter component
-    // let ratings = [];
-
     return (
       <div>
         <TotalReviews total={this.state.hotelData.length}/>
