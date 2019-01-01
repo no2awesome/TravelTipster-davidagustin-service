@@ -3,7 +3,7 @@ import React from 'react';
 const ReplyUserMessage = (props) => {
   return (
     <div>
-      <p> ReplyUserMessage goes here</p>
+      <p>{props.replyMessage}</p>
     </div>
   );
 };

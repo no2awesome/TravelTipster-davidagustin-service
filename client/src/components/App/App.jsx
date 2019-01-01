@@ -1,11 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
+import Filter from '../Filter/Filter.jsx';
 import TotalReviews from '../TotalReviews/TotalReviews.jsx';
-import TravelRating from '../TravelRating/TravelRating.jsx';
-import TimeOfYear from '../TimeOfYear/TimeOfYear.jsx';
-import TravelerType from '../TravelerType/TravelerType.jsx';
-import SearchReviews from '../SearchReviews/SearchReviews.jsx';
-import UserReviewPagination from '../UserReviewPagination/UserReviewPagination.jsx';
 
 
 export class App extends React.Component {
@@ -15,14 +11,17 @@ export class App extends React.Component {
     this.state = {
       hotelData: ['empty']
     };
-
+    this.ratings = [];
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     $.get({
       url: `http://localhost:3000/hotels/${this.props.hotelItem}/reviews`
     }).then((hotelData => {
+      for (let i = 0; i < hotelData.length; i++) {
+        this.ratings.push(hotelData[i]['overAllRating']);
+      }
       this.setState({
         hotelData: hotelData
       });
@@ -38,25 +37,14 @@ export class App extends React.Component {
 
   render() {
 
-    //Pass down all of user ratings to TravelRating component
-    let ratings = [];
-    for (let i = 0; i < this.state.hotelData.length; i++) {
-      ratings.push(this.state.hotelData[i]['overallRating']);
-    }
+    //Pass down all of user ratings to Filter component
+    // let ratings = [];
 
     return (
       <div>
         <TotalReviews total={this.state.hotelData.length}/>
         <h1>Reviews</h1>
-        <div>
-          <TravelRating ratings={ratings}/>
-          <TimeOfYear />
-          <TravelerType />
-        </div>
-        <div>
-          <SearchReviews />
-        </div>
-        <UserReviewPagination hotelItem={this.props.hotelItem}/>
+        <Filter ratings={this.ratings} hotelItem={this.props.hotelItem}/>
       </div>
     );
   }

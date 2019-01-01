@@ -14,7 +14,7 @@ for (let i = 0; i < 101; i++) {
 let imagesTable = [];
 let imagesURIArray = [];
 for (let i = 1; i < 101; i++) {
-  let imagesPosted = Math.floor(Math.random() * 4);
+  let imagesPosted = Math.floor(Math.random() * 3);
   for (let j = 0; j <= imagesPosted; j++) {
     imagesURIArray.push({imageURI: faker.image.city()});
   }
@@ -148,6 +148,7 @@ for (let i = 0; i < 2000; i++) {
       serviceRating: createRating(),
       roomRating: createRating(),
       cleanlinessRating: createRating(),
+      sleepQualityRating: createRating(),
       memberOrLLC: createBool(),
       helpfulClicked: createBool(),
       totalHelpfulClicks: Math.floor(Math.random() * 4)
@@ -169,7 +170,8 @@ for (let i = 0; i < userReviewMessage.length; i++) {
     for (let j = 0; j < 1; j++) {
       let replyTableObject = {
         reviewIDFK: i + 1,
-        name: faker.name.findName(),
+        replierName: faker.name.findName(),
+        replierImage: faker.image.avatar(),
         position: faker.name.jobTitle(),
         replyMessage: createMessage(),
         timeReplied: (faker.date.between('2015-01-01', '2018-12-31')).toString()

@@ -30,7 +30,7 @@ for (let i = 0; i < hotelsTable.length; i++) {
 }
 
 for (let i = 0; i < userReviewMessage.length; i++) {
-  let userReview = `INSERT INTO userReviewMessage (locationIDFK, userWhoPostedMessageIDFK, overallRating, amountOfReviewsFK, title, message, dateOfStay, travelerType, hotelOfUserReviewMessage, valueRating, locationRating, serviceRating, roomRating, cleanlinessRating, memberOrLLC, helpfulClicked, totalHelpfulClicked, datePosted) VALUES (${userReviewMessage[i].locationIDFK}, ${userReviewMessage[i].userWhoPostedMessageIDFK}, ${userReviewMessage[i].overAllRating}, ${userReviewMessage[i].amountOfReviewsFK}, "${userReviewMessage[i].title}", "${userReviewMessage[i].message}", "${userReviewMessage[i].dateOfStay}","${userReviewMessage[i].travelerType}", ${userReviewMessage[i].hotelOfUserReviewMessage}, ${userReviewMessage[i].valueRating}, ${userReviewMessage[i].locationRating}, ${userReviewMessage[i].serviceRating}, ${userReviewMessage[i].roomRating}, ${userReviewMessage[i].cleanlinessRating}, ${userReviewMessage[i].memberOrLLC}, ${userReviewMessage[i].helpfulClicked}, ${userReviewMessage[i].totalHelpfulClicks}, "${userReviewMessage[i].datePosted}")`;
+  let userReview = `INSERT INTO userReviewMessage (locationIDFK, userWhoPostedMessageIDFK, overallRating, amountOfReviewsFK, title, message, dateOfStay, travelerType, hotelOfUserReviewMessage, valueRating, locationRating, serviceRating, roomRating, cleanlinessRating, memberOrLLC, helpfulClicked, totalHelpfulClicked, datePosted, sleepQualityRating) VALUES (${userReviewMessage[i].locationIDFK}, ${userReviewMessage[i].userWhoPostedMessageIDFK}, ${userReviewMessage[i].overAllRating}, ${userReviewMessage[i].amountOfReviewsFK}, "${userReviewMessage[i].title}", "${userReviewMessage[i].message}", "${userReviewMessage[i].dateOfStay}","${userReviewMessage[i].travelerType}", ${userReviewMessage[i].hotelOfUserReviewMessage}, ${userReviewMessage[i].valueRating}, ${userReviewMessage[i].locationRating}, ${userReviewMessage[i].serviceRating}, ${userReviewMessage[i].roomRating}, ${userReviewMessage[i].cleanlinessRating}, ${userReviewMessage[i].memberOrLLC}, ${userReviewMessage[i].helpfulClicked}, ${userReviewMessage[i].totalHelpfulClicks}, "${userReviewMessage[i].datePosted}", ${userReviewMessage[i].sleepQualityRating})`;
 
   db.query(userReview, (err) => {
     if (err) {
@@ -40,7 +40,7 @@ for (let i = 0; i < userReviewMessage.length; i++) {
 }
 
 for (let i = 0; i < replyTable.length; i++) {
-  let repliedMessage = `INSERT INTO reply (name, position, replyMessage, timeReplied, reviewIDFK) VALUES ("${replyTable[i].name}", "${replyTable[i].position}", "${replyTable[i].replyMessage}", "${replyTable[i].timeReplied}", ${replyTable[i].reviewIDFK})`;
+  let repliedMessage = `INSERT INTO reply (replierName, replierImage, position, replyMessage, timeReplied, reviewIDFK) VALUES ("${replyTable[i].replierName}", "${replyTable[i].replierImage}", "${replyTable[i].position}", "${replyTable[i].replyMessage}", "${replyTable[i].timeReplied}", ${replyTable[i].reviewIDFK})`;
 
   db.query(repliedMessage, (err) => {
     if (err) {
