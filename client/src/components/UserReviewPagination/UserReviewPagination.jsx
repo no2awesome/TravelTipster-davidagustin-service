@@ -72,10 +72,12 @@ class UserReviewPagination extends React.Component {
         return value === false;
       })) {
         this.setState({
+          activePage: 1,
           filtered: this.state.hotelData
         });
       } else {
         this.setState({
+          activePage: 1,
           filtered: this.filtered
         });
       }

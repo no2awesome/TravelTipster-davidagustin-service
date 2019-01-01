@@ -12,7 +12,7 @@ export class UserReviews extends React.Component {
       activePage: 1,
       currentColumnView: [],
     };
-
+    this.mapColumn = this.mapColumn.bind(this);
     this.userReviewMessages = null;
   }
 
@@ -26,13 +26,16 @@ export class UserReviews extends React.Component {
         currentUserReviewColumn.push(nextProps.hotelData[i]);
       }
     }
+
+    this.mapColumn();
+
     this.setState({
       activePage: nextProps.activePage,
       currentColumnView: currentUserReviewColumn
     });
   }
 
-  render() {
+  mapColumn() {
     if (this.state.currentColumnView !== []) {
       this.userReviewMessages = this.state.currentColumnView.map((userMessage, i) => {
         return (
@@ -72,6 +75,10 @@ export class UserReviews extends React.Component {
         );
       });
     }
+  }
+
+  render() {
+    {this.mapColumn();}
     return (
       this.userReviewMessages
     );
