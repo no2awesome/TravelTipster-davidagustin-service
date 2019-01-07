@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ReplyUser.css';
 
 class ReplyUser extends React.Component {
   constructor(props) {
@@ -9,9 +10,8 @@ class ReplyUser extends React.Component {
     let replier;
     if (this.props.replierName !== null) {
       replier = (
-        <div>
+        <div className={styles.replyUser}>
           <p>Response from {this.props.replierName}, {this.props.position} at {this.props.hotelName}</p>
-          <img src={this.props.replierImage} alt='replierImage'/>
           <p>Responded {this.props.timeReplied}</p>
         </div>
       );

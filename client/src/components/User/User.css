@@ -1,0 +1,21 @@
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 17px;
+    padding-right: 29px;
+}
+
+.userImage {
+    border-radius: 90%;
+    vertical-align: middle;
+    width: 72px;
+    height: 72px;
+    box-shadow: inset 0 0 6px 0 rgba(0, 0, 0, 0.1);
+}
+
+.userName {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: bold;
+    font-family: Arial, Tahoma, "Bitstream Vera Sans", sans-serif;
+}

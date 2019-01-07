@@ -2,6 +2,8 @@ import React from 'react';
 import $ from 'jquery';
 import Pagination from 'react-js-pagination';
 import {UserReviews} from '../UserReviews/UserReviews.jsx';
+import styles from './UserReviewPagination.css';
+
 
 class UserReviewPagination extends React.Component {
   constructor(props) {
@@ -20,6 +22,8 @@ class UserReviewPagination extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.filter !== prevProps.filter) {
       this.filtered = [];
+
+
       for (let i = 0; i < this.state.hotelData.length; i++) {
         if (this.props.filter.ExcellentChecked === true && this.state.hotelData[i].overAllRating === 5 && this.state.hotelData[i].message.includes(this.props.filter.searchReviewText)) {
           this.filtered.push(this.state.hotelData[i]);
@@ -93,7 +97,7 @@ class UserReviewPagination extends React.Component {
 
   componentWillMount() {
     $.get({
-      url: `http://localhost:3000/hotels/${this.props.hotelItem}/reviews`
+      url: '/reviews/test'
     }).then((hotelData => {
       this.setState({
         hotelData: hotelData,
@@ -102,6 +106,18 @@ class UserReviewPagination extends React.Component {
       });
     }));
   }
+
+  // componentWillMount() {
+  //   $.get({
+  //     url: `http://localhost:3000/hotels/${this.props.hotelItem}/reviews`,
+  //   }).then((hotelData => {
+  //     this.setState({
+  //       hotelData: hotelData,
+  //       activePage: 1,
+  //       filtered: hotelData
+  //     });
+  //   }));
+  // }
 
 
   handlePageChange(pageNumber) {
@@ -114,16 +130,20 @@ class UserReviewPagination extends React.Component {
         <div>
           <UserReviews hotelData={this.state.filtered} activePage={this.state.activePage}/>
         </div>
-        <Pagination
-          hideFirstLastPages={true}
-          prevPageText='Previous'
-          nextPageText='Next'
-          activePage={this.state.activePage}
-          itemsCountPerPage={5}
-          totalItemsCount={this.state.filtered.length}
-          pageRangeDisplayed={7}
-          onChange={this.handlePageChange}
-        />
+        <div className={styles.pagination}>
+          <Pagination
+            hideFirstLastPages={true}
+            prevPageText='Previous'
+            nextPageText='Next'
+            activePage={this.state.activePage}
+            itemsCountPerPage={5}
+            totalItemsCount={this.state.filtered.length}
+            pageRangeDisplayed={7}
+            onChange={this.handlePageChange}
+            itemClassPrev={styles.prev}
+            itemClassNext={styles.next}
+          />
+        </div>
       </div>
     );
   }

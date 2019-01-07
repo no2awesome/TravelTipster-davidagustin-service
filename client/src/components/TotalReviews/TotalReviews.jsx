@@ -1,16 +1,11 @@
 import React from 'react';
+import styles from './TotalReviews.css';
 
 const TotalReviews = (props) => {
   return (
     <div>
-      <div>
-        Reviews Icon Goes Here
-      </div>
-      <div>
-        {props.total}(Total Reviews)
-      </div>
-      <div>
-        Reviews Tab
+      <div className={styles.body}>
+        <h1 className={styles.reviews}>Reviews <span className={styles.reviewsNumber}>({props.total})</span> </h1>
       </div>
     </div>
   );

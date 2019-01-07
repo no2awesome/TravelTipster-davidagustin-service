@@ -1,7 +1,7 @@
 let path = require('path');
 let SRC_DIR = path.join(__dirname, '/client/src');
 let DIST_DIR = path.join(__dirname, '/client/dist');
-const combineLoaders = require('webpack-combine-loaders');
+let combineLoaders = require('webpack-combine-loaders');
 
 module.exports = {
   entry: `${SRC_DIR}/index.jsx`, // starting point

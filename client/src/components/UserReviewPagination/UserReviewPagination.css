@@ -1,0 +1,27 @@
+ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-around;
+}
+
+a {
+    line-height: 40px;
+    height: 40px;
+    width: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    display: inline-block;
+    color: #078171;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.linkClassFirst {
+    color: red;
+}
+
+.next {
+    color: red;
+}

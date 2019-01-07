@@ -1,5 +1,6 @@
 import React from 'react';
 import UserReviewPagination from '../UserReviewPagination/UserReviewPagination.jsx';
+import styles from './Filter.css';
 
 let ratingsCount = {
   Excellent: 0,
@@ -76,119 +77,120 @@ class Filter extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <p><b>Traveler rating</b></p>
-          <div>
-            <label className="container">
-              <input type="checkbox" value="Excellent" onClick={this.handleClick}/>
-              <span className="checkmark"> </span>
-              Excellent: {ratingsCount['Excellent']}
-            </label>
+      <div className={styles.box}>
+        <div className={styles.allRatings}>
+          <div className={styles.travelRating}>
+            <div><b>Traveler rating</b></div>
+            <div>
+              <label className="container">
+                <input type="checkbox" value="Excellent" onClick={this.handleClick}/>
+                <span className="checkmark"> </span>
+                Excellent: {ratingsCount['Excellent']}
+              </label>
+            </div>
+            <div>
+              <label className="container">
+                <input type="checkbox" value="Good" onClick={this.handleClick}/>
+                <span className="checkmark"> </span>
+                Good: {ratingsCount['Good']}
+              </label>
+            </div>
+            <div>
+              <label className="container">
+                <input type="checkbox" value="Average" onClick={this.handleClick}/>
+                <span className="checkmark"> </span>
+                Average: {ratingsCount['Average']}
+              </label>
+            </div>
+            <div>
+              <label className="container">
+                <input type="checkbox" value="Poor" onClick={this.handleClick}/>
+                <span className="checkmark"> </span>
+                Poor: {ratingsCount['Poor']}
+              </label>
+            </div>
+            <div>
+              <label className="container">
+                <input type="checkbox" value="Terrible" onClick={this.handleClick}/>
+                <span className="checkmark"> </span>
+                Terrible: {ratingsCount['Terrible']}
+              </label>
+            </div>
           </div>
           <div>
-            <label className="container">
-              <input type="checkbox" value="Good" onClick={this.handleClick}/>
-              <span className="checkmark"> </span>
-              Good: {ratingsCount['Good']}
-            </label>
+            <div className={styles.travelerType}><b>Traveler Type</b></div>
+            <div>
+              <label className="container">
+                <input type="checkbox" value="Families" onClick={this.handleClick}/>
+                <span className="checkmark"> </span>
+                Families
+              </label>
+            </div>
+            <div>
+              <label className="container">
+                <input type="checkbox" value="Couples" onClick={this.handleClick}/>
+                <span className="checkmark"> </span>
+                Couples
+              </label>
+            </div>
+            <div>
+              <label className="container">
+                <input type="checkbox" value="Business" onClick={this.handleClick}/>
+                <span className="checkmark"> </span>
+                Business
+              </label>
+            </div>
+            <div>
+              <label className="container">
+                <input type="checkbox" value="Friends" onClick={this.handleClick}/>
+                <span className="checkmark"> </span>
+                Friends
+              </label>
+            </div>
+            <div>
+              <label className="container">
+                <input type="checkbox" value="Solo" onClick={this.handleClick}/>
+                <span className="checkmark"> </span>
+                Solo
+              </label>
+            </div>
           </div>
           <div>
-            <label className="container">
-              <input type="checkbox" value="Average" onClick={this.handleClick}/>
-              <span className="checkmark"> </span>
-              Average: {ratingsCount['Average']}
-            </label>
-          </div>
-          <div>
-            <label className="container">
-              <input type="checkbox" value="Poor" onClick={this.handleClick}/>
-              <span className="checkmark"> </span>
-              Poor: {ratingsCount['Poor']}
-            </label>
-          </div>
-          <div>
-            <label className="container">
-              <input type="checkbox" value="Terrible" onClick={this.handleClick}/>
-              <span className="checkmark"> </span>
-              Terrible: {ratingsCount['Terrible']}
-            </label>
+            <div className={styles.timeOfYear}><b>Time of year</b></div>
+            <div>
+              <label className="container">
+                <input type="checkbox" value="MarMay" onClick={this.handleClick}/>
+                <span className="checkmark"> </span>
+                Mar-May
+              </label>
+            </div>
+            <div>
+              <label className="container">
+                <input type="checkbox" value="JunAug" onClick={this.handleClick}/>
+                <span className="checkmark"> </span>
+                Jun-Aug
+              </label>
+            </div>
+            <div>
+              <label className="container">
+                <input type="checkbox" value="SepNov" onClick={this.handleClick}/>
+                <span className="checkmark"> </span>
+                Sep-Nov
+              </label>
+            </div>
+            <div>
+              <label className="container">
+                <input type="checkbox" value="DecFeb" onClick={this.handleClick}/>
+                <span className="checkmark"> </span>
+                Dec-Feb
+              </label>
+            </div>
           </div>
         </div>
-        <div>
-          <p><b>Traveler Type</b></p>
-          <div>
-            <label className="container">
-              <input type="checkbox" value="Families" onClick={this.handleClick}/>
-              <span className="checkmark"> </span>
-              Families
-            </label>
-          </div>
-          <div>
-            <label className="container">
-              <input type="checkbox" value="Couples" onClick={this.handleClick}/>
-              <span className="checkmark"> </span>
-              Couples
-            </label>
-          </div>
-          <div>
-            <label className="container">
-              <input type="checkbox" value="Business" onClick={this.handleClick}/>
-              <span className="checkmark"> </span>
-              Business
-            </label>
-          </div>
-          <div>
-            <label className="container">
-              <input type="checkbox" value="Friends" onClick={this.handleClick}/>
-              <span className="checkmark"> </span>
-              Friends
-            </label>
-          </div>
-          <div>
-            <label className="container">
-              <input type="checkbox" value="Solo" onClick={this.handleClick}/>
-              <span className="checkmark"> </span>
-              Solo
-            </label>
-          </div>
-        </div>
-        <div>
-          <p><b>Time of year</b></p>
-          <div>
-            <label className="container">
-              <input type="checkbox" value="MarMay" onClick={this.handleClick}/>
-              <span className="checkmark"> </span>
-              Mar-May
-            </label>
-          </div>
-          <div>
-            <label className="container">
-              <input type="checkbox" value="JunAug" onClick={this.handleClick}/>
-              <span className="checkmark"> </span>
-              Jun-Aug
-            </label>
-          </div>
-          <div>
-            <label className="container">
-              <input type="checkbox" value="SepNov" onClick={this.handleClick}/>
-              <span className="checkmark"> </span>
-              Sep-Nov
-            </label>
-          </div>
-          <div>
-            <label className="container">
-              <input type="checkbox" value="DecFeb" onClick={this.handleClick}/>
-              <span className="checkmark"> </span>
-              Dec-Feb
-            </label>
-          </div>
-        </div>
-        <div>
+        <div className={styles.searchReviewInput}>
           <form onSubmit={this.handleSubmit}>
-            <p> Search Review Icon goes here
-              <input name="searchReviewText" value={this.state.searchReviewText} onChange={this.handleChange}/>
-            </p>
+            <div className={styles.showReviewsThatMention}> Show reviews that mention </div>
+            <input className={styles.inputBox} name="searchReviewText" value={this.state.searchReviewText} onChange={this.handleChange}/>
           </form>
         </div>
         <UserReviewPagination hotelItem={this.props.hotelItem} filter={this.state}/>

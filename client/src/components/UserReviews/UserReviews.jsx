@@ -3,6 +3,7 @@ import ReplyUser from '../ReplyUser/ReplyUser.jsx';
 import ReplyUserMessage from '../ReplyUserMessage/ReplyUserMessage.jsx';
 import User from '../User/User.jsx';
 import UserMessage from '../UserMessage/UserMessage.jsx';
+import styles from './UserReviews.css';
 
 export class UserReviews extends React.Component {
   constructor(props) {
@@ -38,14 +39,15 @@ export class UserReviews extends React.Component {
     if (this.state.currentColumnView !== []) {
       this.userReviewMessages = this.state.currentColumnView.map((userMessage, i) => {
         return (
-          <div key={i}>
-            <div>
+          <div key={i} className={styles.wholeUserReviewsBox}>
+            <div className={styles.userAndMessage}>
               <User
                 userName={userMessage.userName}
                 userImage={userMessage.userImage}
-                hotelName={userMessage.hotelName}
-                datePosted={userMessage.datePosted}/>
+              />
               <UserMessage
+                hotelName={userMessage.hotelName}
+                datePosted={userMessage.datePosted}
                 overAllRating={userMessage.overAllRating}
                 title={userMessage.title}
                 imageURI={userMessage.imageURI}
@@ -59,7 +61,7 @@ export class UserReviews extends React.Component {
                 serviceRating={userMessage.serviceRating}
                 sleepQualityRating={userMessage.sleepQualityRating}/>
             </div>
-            <div>
+            <div className={styles.replyUser}>
               <ReplyUser
                 replierName={userMessage.replierName}
                 replierImage={userMessage.replierImage}
@@ -79,7 +81,12 @@ export class UserReviews extends React.Component {
   render() {
     this.mapColumn();
     return (
-      this.userReviewMessages
+      <div>
+        <div className={styles.showPaginationAndReviewsTotal}>
+          {`${this.state.activePage} - ${this.state.activePage + 4} of ${this.props.hotelData.length} reviews`}
+        </div>
+        {this.userReviewMessages}
+      </div>
     );
   }
 }
