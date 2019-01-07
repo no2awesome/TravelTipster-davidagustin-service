@@ -1,0 +1,41 @@
+.box {
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    padding-right: 35px;
+    padding-left: 35px;
+}
+
+.allRatings {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 43px;
+    margin-top: 32px;
+}
+
+.searchReviewInput {
+    padding-bottom: 43px;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    font: 400 11px system-ui;
+    -webkit-writing-mode: horizontal-tb !important;
+}
+
+.showReviewsThatMention {
+    font-size: 12px;
+    color: #000a12;
+    font-weight: bold;
+    font-family: Arial,Tahoma,"Bitstream Vera Sans",sans-serif;
+    margin-bottom: 12px;
+}
+
+.inputBox {
+    width: 614px;
+    padding: 8px;
+}

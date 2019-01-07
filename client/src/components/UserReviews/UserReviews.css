@@ -1,0 +1,31 @@
+.showPaginationAndReviewsTotal {
+    text-align: right;
+    color: #4a4a4a;
+    font-size: 12px;
+    font-family: Arial, Tahoma, "Bitstream Vera Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    display: block;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 15px;
+}
+
+.wholeUserReviewsBox {
+    padding-top: 37px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.userAndMessage {
+    display: flex;
+    flex-direction: row;
+}
+
+.replyUser {
+    margin-left: 100px;
+    margin-top: 16px;
+    border-left: 1px solid #e5e5e5;
+    padding-left: 23px;
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: 16px;
+}

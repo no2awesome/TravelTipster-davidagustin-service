@@ -23,9 +23,9 @@ ALTER TABLE images
 
 CREATE TABLE hotels
 (
-  hotelID              INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  hotelName            VARCHAR(120),
-  amountOfReviews      INT,
+  hotelID                   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  hotelName                 VARCHAR(120),
+  amountOfReviews           INT,
   averageOverallHotelRating REAL
 );
 
@@ -34,7 +34,7 @@ CREATE TABLE userReviewMessage
   reviewID                 INT NOT NULL AUTO_INCREMENT KEY,
   locationIDFK             INT,
   userWhoPostedMessageIDFK INT,
-  overallRating            INT,
+  overAllRating            INT,
   amountOfReviewsFK        INT,
   title                    VARCHAR(60),
   message                  TEXT,
@@ -46,6 +46,7 @@ CREATE TABLE userReviewMessage
   serviceRating            INT,
   roomRating               INT,
   cleanlinessRating        INT,
+  sleepQualityRating       INT,
   memberOrLLC              BOOL,
   helpfulClicked           BOOL,
   totalHelpfulClicked      INT,
@@ -63,8 +64,9 @@ ALTER TABLE userReviewMessage
 
 CREATE TABLE reply
 (
-  replierID    INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name         TEXT,
+  replierID    INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  replierName  TEXT,
+  replierImage TEXT,
   position     TEXT,
   replyMessage TEXT,
   timeReplied  TEXT,

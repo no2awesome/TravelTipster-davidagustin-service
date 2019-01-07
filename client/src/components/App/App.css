@@ -1,0 +1,17 @@
+.entireBackground {
+  background-color: #f2f2f2;
+}
+
+.container {
+  -webkit-font-smoothing: antialiased;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  width: 850px;
+  border-radius: 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #e5e5e5;
+  padding-right: 35px;
+  padding-left: 35px;
+}

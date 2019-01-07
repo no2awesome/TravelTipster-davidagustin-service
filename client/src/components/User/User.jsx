@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './User.css';
 
 class User extends React.Component {
   constructor(props) {
@@ -7,8 +8,9 @@ class User extends React.Component {
 
   render() {
     return (
-      <div>
-        <p>User Component is here</p>
+      <div className={styles.userInfo}>
+        <img className={styles.userImage} src={this.props.userImage}/>
+        <div className={styles.userName}>{this.props.userName}</div>
       </div>
     );
   }

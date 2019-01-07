@@ -1,0 +1,26 @@
+.reviews {
+    flex-grow: 1;
+    margin-right: 5px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #000a12;
+    font-family: Arial,Tahoma,"Bitstream Vera Sans",sans-serif;
+    line-height: 32px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.reviewsNumber {
+    color: #767676;
+    display: inline-block;
+    padding-left: 12px;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 32px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.body{
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
